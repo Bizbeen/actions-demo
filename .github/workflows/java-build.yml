@@ -1,7 +1,9 @@
 name: Java Build Automation
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
   build:
@@ -19,4 +21,7 @@ jobs:
 
       - name: Build and verify with Maven
         run: mvn clean verify
+
+      - name: Display generated files
+        run: ls -lh target/
 
